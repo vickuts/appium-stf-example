@@ -13,7 +13,6 @@ import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +24,7 @@ public class AndroidTest {
     private AndroidDriver androidDriver;
     private String deviceSerial;
     private DeviceApi deviceApi;
-    private AppiumServer appiumServer = new AppiumServer();
+//    private AppiumServer appiumServer = new AppiumServer();
 
     @Factory(dataProvider = "parallelDp")
     public AndroidTest(String deviceSerial) {
@@ -53,7 +52,7 @@ public class AndroidTest {
         deviceApi = new DeviceApi(stfService);
         deviceApi.connectDevice(deviceSerial);
 
-        androidDriver = new AndroidDriver(new URL(appiumServer.startAppiumServer()), desiredCapabilities);
+        androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"), desiredCapabilities);
         androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
@@ -79,6 +78,6 @@ public class AndroidTest {
             androidDriver.quit();
         }
         deviceApi.releaseDevice(deviceSerial);
-        appiumServer.killAppiumProcess();
+//        appiumServer.killAppiumProcess();
     }
 }
