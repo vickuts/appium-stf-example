@@ -57,7 +57,7 @@ public class AppiumServer {
 		if (availablePort == 0) {
 			throw new PortUnreachableException("Ports are not available");
 		} else {
-			command = "node  " + APPIUM_HOME + " ";
+			command = APPIUM_HOME + " ";
 			command = command + " -a " + HOST_NAME + " -p " + availablePort + " ";
 			command = command + " -cp " + (availablePort + 1000) + " -bp " + (availablePort + 2000);
 			command = command + " --chromedriver-executable " + homeDir + System.getProperty("user.dir") + "/app/support/chromedriver";
