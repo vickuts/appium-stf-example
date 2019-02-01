@@ -58,7 +58,8 @@ public class AppiumServer {
 			throw new PortUnreachableException("Ports are not available");
 		} else {
 			command = APPIUM_HOME + " ";
-			command = command + " -a " + HOST_NAME + " -p " + availablePort;
+			command = command + " -a " + HOST_NAME + " -p " + availablePort + " ";
+			command = command + " " + appiumArgs;
 			LOG.info("Command to start Appium Server: " + command);
 		}
 
@@ -66,6 +67,7 @@ public class AppiumServer {
 
 		LOG.info("Waiting for Appium server starts...");
 		while (!isPortInUse(HOST_NAME, availablePort)) {
+			LOG.info("port is not in use");
 			Thread.sleep(1000);
 		}
 		appiumServerUrl = "http://" + HOST_NAME + ":" + availablePort + "/wd/hub";
