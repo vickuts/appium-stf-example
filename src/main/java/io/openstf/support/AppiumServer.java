@@ -57,7 +57,7 @@ public class AppiumServer {
 		if (availablePort == 0) {
 			throw new PortUnreachableException("Ports are not available");
 		} else {
-			command = APPIUM_HOME + " ";
+			command = NODE_HOME + " " + APPIUM_HOME + " ";
 			command = command + " -a " + HOST_NAME + " -p " + availablePort + " ";
 			command = command + " " + appiumArgs;
 			LOG.info("Command to start Appium Server: " + command);
