@@ -44,6 +44,9 @@ public class AppiumServer {
 		if (APPIUM_HOME == null) throw new NoSuchElementException("Environment variable not found for APPIUM_HOME");
 		if (NODE_HOME == null) throw new NoSuchElementException("Environment variable not found for NODE_HOME");
 
+		LOG.info("APPIUM_HOME is '{}'", APPIUM_HOME);
+		LOG.info("NODE_HOME is '{}'", NODE_HOME);
+
 		for (int i = 0; i < ports.length; i++) {
 			if (!isPortInUse(HOST_NAME, ports[i])) {
 				availablePort = ports[i];
