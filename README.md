@@ -6,10 +6,21 @@ The [OpenSTF](http://openstf.io/) is the open source mobile android **S**martpho
 
 # Pre-requisites
 - [OpenSTF](http://openstf.io/) (> v2.0.0)
-- [OpenSTF](http://openstf.io/) (> v2.0.0)
-
 - [Appium](http://appium.io/) 
-- [Gradle](https://gradle.org/) 
+- [Gradle](https://gradle.org/)
+
+## How to set environment for running tests
+Before executing tests there should be set next software:
+- Android SDK and tools ([Install docs](https://developer.android.com/studio/index.html))
+- Node.js with NPM ([Install docs](https://nodejs.org/en/download/))
+- Appium server ([Install docs](https://appium.io/docs/en/about-appium/intro/#appium-concepts))
+
+<b>[Important]</b> 
+
+All the paths for libraries should be added to ```PATH``` system environment variable and to ```~/.bash_profile```:
+- ANDROID_HOME
+- APPIUM_HOME
+- NODE_HOME 
 
 # Installation
 Run this command in terminal:
