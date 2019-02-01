@@ -58,11 +58,7 @@ public class AppiumServer {
 			throw new PortUnreachableException("Ports are not available");
 		} else {
 			command = APPIUM_HOME + " ";
-			command = command + " -a " + HOST_NAME + " -p " + availablePort + " ";
-			command = command + " -cp " + (availablePort + 1000) + " -bp " + (availablePort + 2000);
-			command = command + " --chromedriver-executable " + homeDir + System.getProperty("user.dir") + "/app/support/chromedriver";
-			command = command + " --chromedriver-port " + (availablePort + 3000);
-			command = command + " " + appiumArgs;
+			command = command + " -a " + HOST_NAME + " -p " + availablePort;
 			LOG.info("Command to start Appium Server: " + command);
 		}
 
