@@ -5,8 +5,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.openstf.support.AppiumServer;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class AndroidTest {
@@ -40,7 +41,7 @@ public class AndroidTest {
     }
 
     @BeforeClass
-    public void setup() throws IOException, URISyntaxException, InterruptedException {
+    public void setup() throws IOException, URISyntaxException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "ANDROID");
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
