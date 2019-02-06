@@ -35,7 +35,7 @@ public class AndroidTest {
     @DataProvider
     public Object[][] parallelDp() {
         return new Object[][]{
-                {"5203547fece0c37f"},    // Change the device serial
+//                {"5203547fece0c37f"},    // Change the device serial
                 {"emulator-5554"},    // Change the device serial
         };
     }
@@ -49,9 +49,9 @@ public class AndroidTest {
         desiredCapabilities.setCapability(MobileCapabilityType.UDID, this.deviceSerial);
         desiredCapabilities.setCapability(MobileCapabilityType.APP, new File("src/test/resources/ApiDemos-debug.apk").getAbsolutePath());
 
-        STFService stfService = new STFService(STF_SERVICE_URL, ACCESS_TOKEN);
-        deviceApi = new DeviceApi(stfService);
-        deviceApi.connectDevice(deviceSerial);
+//        STFService stfService = new STFService(STF_SERVICE_URL, ACCESS_TOKEN);
+//        deviceApi = new DeviceApi(stfService);
+//        deviceApi.connectDevice(deviceSerial);
 
         androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"), desiredCapabilities);
         androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -78,7 +78,7 @@ public class AndroidTest {
         if (androidDriver != null) {
             androidDriver.quit();
         }
-        deviceApi.releaseDevice(deviceSerial);
+//        deviceApi.releaseDevice(deviceSerial);
 //        appiumServer.killAppiumProcess();
     }
 }
